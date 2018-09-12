@@ -1,0 +1,40 @@
+
+	<table data-ng-show="productCategories.length > 0" class="table table-striped table-hover ">
+		  <thead>
+			    <tr class="success">
+				      <th>Catergory Name</th>
+				      <th>Details</th>
+				      <th>IsActive Category</th>
+				      <th>Created Date</th>
+				      <th>Actions</th>
+			    </tr>
+		  </thead>
+		  <tbody>
+			    <tr data-ng-repeat="productCategory in productCategories">
+				      <td>{{ productCategory.CategoryName }}</td>
+				      <td>{{ productCategory.Details }}</td>
+				      <td>{{ productCategory.IsValid == "1" ? "Valid" : "Invalid" }}</td>
+				      <td>{{ productCategory.CreatedDate }}</td>
+				      <td>
+					      	<div class="btn btn-group btn-xs">
+											<a href="#" class="btn btn-info btn-xs">
+													Edit Product Category
+											</a>
+						      		<a href="#" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+						      				<span class="caret"></span>
+						      		</a>
+						      		<ul class="dropdown-menu">
+							      			<li><a class="btn" href="/editProductCategory/{{ productCategory.Id }}">Edit Product Category</a></li>
+							      			<li><a class="btn" href="#">View Details</a></li>
+							      			<li class="divider"></li>
+							      			<li>
+															<a href="#" class="btn btn-danger" data-ng-click="deleteProductCategoryById( productCategory.Id )">
+																	Delete Product Category
+															</a>
+													</li>
+						      		</ul>
+					      	</div>
+				      </td>
+			    </tr>
+		  </tbody>
+	</table>

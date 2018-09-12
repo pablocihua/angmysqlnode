@@ -1,0 +1,20 @@
+{
+  "name": "angmysqlcrud",
+  "version": "1.0.0",
+  "description": "CRUD app with AngularJs, Node js, express js, Bootstrap, EJS, MySQL",
+  "main": "app.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "author": "JuanPa Palacios",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.5",
+    "jade": "^1.11.0",
+    "mysql": "^2.14.1",
+    "stylus": "^0.54.5",
+    "uglify-js": "^3.4.9"
+  }
+}

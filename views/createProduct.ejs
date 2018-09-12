@@ -1,0 +1,91 @@
+<% include layout %>
+<div class="container">
+    <div class="bs-docs-section">
+        <% include pageTitle %>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well bs-component"
+                     data-ng-cloak
+                     data-ng-app="productModule"
+                     data-ng-controller="productController">
+
+                   <% include validationSummary %>
+
+                   <form class="form-horizontal" method="post" name="formProduct">
+                      <fieldset>
+                         <legend><%= title %></legend>
+
+                            <div class="form-group">
+                                <label for="" class="col-lg-3 control-label">Product Name</label>
+                                <div class="col-lg-9">
+                                    <input type="text" name="product" value=""
+                                           placeholder="Please Enter Product Name" class="form-control"
+                                           ng-model="product.Name" id="product" required>
+                                     <input type="hidden" name="IsValid" class="form-control"
+                                            ng-model="product.isValid" value="true">
+                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productCategory" class="col-lg-3">Product Category</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" name="productCategory" id="productCategory"
+                                            data-ng-model="product.ProductCategoryId">
+                                      <<option value="">Please Select Poduct Category</option>
+                                        <option data-ng-repeat="productCategory in productCategories"
+                                                value="{{ productCategory.Id}}">
+                                            {{ productCategory.CategoryName }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-lg-3 control-label">Product Cost</label>
+                                <div class="col-lg-9">
+                                    <input type="text" name="productCost" value=""
+                                           placeholder="Please Enter Product Cost" class="form-control"
+                                           ng-model="product.ProductCost" id="productCost" required>
+                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-lg-3 control-label">Product Selling Cost</label>
+                                <div class="col-lg-9">
+                                    <input type="text" name="productSellingCost" value=""
+                                           placeholder="Please Enter Product Selling Cost" class="form-control"
+                                           ng-model="product.ProductSellingCost" id="productSellingCost" required>
+                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-lg-3 control-label">Product Description</label>
+                                <div class="col-lg-9">
+                                    <textarea class="form-control" name="productDescription" value="" placeholder="Product Description"
+                                           ng-model="product.Description" id="productDescription" required
+                                           row="5" cols="30">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-8 col-lg-offset-3">
+                                    <button type="button" class="btn btn-primary"
+                                            ng-click="createProduct( product )">
+                                        Create Product
+                                    </button>
+                                </div>
+                            </div>
+                      </fieldset>
+                 </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/js/app/product/productModule.js"></script>
+<script src="/js/app/product/productService.js"></script>
+<script src="/js/app/requiredFieldValidationService.js"></script>
+<script src="/js/app/product/productController.js"></script>

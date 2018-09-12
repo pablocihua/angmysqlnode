@@ -1,0 +1,59 @@
+<% include layout %>
+<div class="container">
+    <div class="bs-docs-section">
+        <% include pageTitle %>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well bs-component"
+                     data-ng-cloak
+                     data-ng-app="productCategoryModule"
+                     data-ng-controller="productCategoryController">
+
+                   <% include validationSummary %>
+
+                   <form class="form-horizontal" method="post" name="formProductCategory">
+                      <fieldset>
+                         <legend><%= title %></legend>
+
+                            <div class="form-group">
+                                <label for="" class="col-lg-3 control-label">Product Category Name</label>
+                                <div class="col-lg-9">
+                                    <input type="text" name="productCategory" value="" placeholder="Product Category Name" class="form-control"
+                                           ng-model="productCategory.categoryName" id="productCategory" required>
+                                     <input type="hidden" name="IsValid" class="form-control"
+                                            ng-model="productCategory.isValid" value="true">
+                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-lg-3 control-label">Product Category Details</label>
+                                <div class="col-lg-9">
+                                    <textarea class="form-control" name="productDetails" value="" placeholder="Product Category Details"
+                                           ng-model="productCategory.categoryDetails" id="productDetails" required
+                                           row="5" cols="30">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-8 col-lg-offset-3">
+                                    <!-- <button type="reset" class="btn btn-default">Cancel</button> -->
+                                    <button type="button" class="btn btn-primary"
+                                            ng-click="createProductCategory( productCategory )">
+                                        Create Product Category
+                                    </button>
+                                </div>
+                            </div>
+                      </fieldset>
+                 </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/js/app/productCategory/productCategoryModule.js"></script>
+<script src="/js/app/productCategory/productCategoryService.js"></script>
+<script src="/js/app/requiredFieldValidationService.js"></script>
+<script src="/js/app/productCategory/productCategoryController.js"></script>

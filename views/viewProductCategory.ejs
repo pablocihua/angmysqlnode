@@ -1,0 +1,33 @@
+<% include layout %>
+<div class="container">
+    <div class="bs-docs-section">
+        <% include pageTitle %>
+        <!-- <div class="row">
+            <div class="col-lg-12">
+                <h2><%= title %></h2>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><%= title %></h3>
+                </div>
+                <div class="panel-body">
+                    <div data-ng-app="productCategoryModule"
+                    	 data-ng-controller="productCategoryController"
+                    	 data-ng-init="getAllProductCategories()">
+                    	<div class="container">
+                    		  <% include productCategoryGrid %>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/js/app/productCategory/productCategoryModule.js"></script>
+<script src="/js/app/productCategory/productCategoryService.js"></script>
+<script src="/js/app/requiredFieldValidationService.js"></script>
+<script src="/js/app/productCategory/productCategoryController.js"></script>
